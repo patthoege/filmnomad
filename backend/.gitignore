@@ -1,0 +1,31 @@
+# Byte‑compiled / cache files
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+
+# macOS and editor artefacts
+.DS_Store
+.vscode/
+
+# Virtual environment
+.venv/
+env/
+
+# Environment & secrets
+.env
+
+# Local databases / debug files
+db.sqlite3
+*.sqlite
+*.db
+*.log
+
+# Django collectstatic output (if you run collectstatic locally)
+staticfiles/
+media/
+
+# Test / coverage artefacts
+.coverage
+.pytest_cache/
+.mypy_cache/
