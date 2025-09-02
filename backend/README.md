@@ -1,3 +1,5 @@
+
+
 # FilmNomad – Backend (Django REST API)
 
 This folder contains the backend for **FilmNomad**, a movie location finder web application. It provides a RESTful API built with Django and Django REST Framework (DRF) to search for movies and filming locations, plan trips, and submit suggestions. It also includes user authentication via JSON Web Tokens (JWT), admin moderation tools, and support for future features like saved trips and ratings.
@@ -14,41 +16,47 @@ This folder contains the backend for **FilmNomad**, a movie location finder web 
 
 ## Installation
 
-1. **Clone the repository**  
+1. **Clone the repository**
    ```bash
    git clone https://github.com/yourusername/filmnomad.git
    cd filmnomad/backend
 
+
 2.	Create a virtual environment and activate it
 
-   ``` python3 -m venv .venv
-       source .venv/bin/activate  # On Windows use: .venv\Scripts\Activate.ps1
-
+    ```bash
+    python3 -m venv .venv
+    source .venv/bin/activate  # On Windows use: .venv\Scripts\Activate.ps1
 3.	Install dependencies
 
+    ```bash
     pip install -r requirements.txt
 
 4.	Create an environment file
-
+    ```bash
     Copy .env from the example below, then customize it to suit your environment (never commit secrets):
+
     SECRET_KEY=your-secret-key
     DEBUG=True
     ALLOWED_HOSTS=localhost,127.0.0.1
-    # Use SQLite by default; for PostgreSQL set this to `postgres://user:password@localhost:5432/dbname`
-    DATABASE_URL=sqlite:///db.sqlite3
-    OMDB_API_KEY=your-omdb-api-key
+
+# Use SQLite by default; for PostgreSQL set this to `postgres://user:password@localhost:5432/dbname`
+DATABASE_URL=sqlite:///db.sqlite3
+OMDB_API_KEY=your-omdb-api-key
+
 
 5.	Apply database migrations
 
+    ```bash
     python manage.py makemigrations
     python manage.py migrate
 
+
 6.	Create an admin user
-
+    ```bash
     python manage.py createsuperuser
-
-7.  Run the development server
-
+7.	Run the development server
+    ```bash
     python manage.py runserver
 
 The API will be available at http://127.0.0.1:8000/api/, and the Django admin interface at http://127.0.0.1:8000/admin/.
@@ -58,9 +66,20 @@ The API will be available at http://127.0.0.1:8000/api/, and the Django admin in
 
 All endpoints are prefixed with /api/. Authentication is required for write operations; read operations are public.
 
-## Authentication
-	•	POST /api/auth/token/ – Obtain access and refresh tokens. Send JSON with {"username": "...", "password": "..."}.
-	•	POST /api/auth/refresh/ – Refresh an access token. Send JSON with {"refresh": "<refresh_token>"}.
+### Authentication
+	
+    POST /api/auth/token/ – Obtain access and refresh tokens.
+
+Send JSON with:
+ 
+{ "username": "yourusername", "password": "yourpassword" }
+
+	POST /api/auth/refresh/ – Refresh an access token.
+Send JSON with:
+
+{ "refresh": "<refresh_token>" }
+
+
 
 ### Movies
 	•	GET /api/movies/ – List all movies and series.
@@ -101,7 +120,8 @@ All endpoints are prefixed with /api/. Authentication is required for write oper
 	•	DEBUG: Set True for development; False in production.
 	•	ALLOWED_HOSTS: Comma-separated list of hostnames allowed to serve the app.
 	•	DATABASE_URL: Database connection URL. Defaults to SQLite; use PostgreSQL for production.
-	•	OMDB_API_KEY: API key for OMDb API to look up movie details.
+	<!-- •	OMDB_API_KEY: API key for OMDb API to look up movie details. -->
+    
 
 ## Contributing
 
@@ -110,3 +130,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## License
 
 This project does not yet specify a license. Consider adding one to define permitted uses.
+
+This way, **every step and every command/config snippet is wrapped in fenced code blocks** for clarity.
